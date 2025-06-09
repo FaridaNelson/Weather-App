@@ -1,0 +1,29 @@
+.modal__content_type_image {
+  width: 498px;
+  padding: 0;
+}
+
+.modal__image {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.modal__close {
+  background-color: transparent;
+  color: #fff;
+}
+
+.modal__footer {
+  padding: 20px 32px 32px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.modal__caption {
+  margin: 0 0 12px;
+}
+
+.modal__weather {
+  margin: 0;
+}

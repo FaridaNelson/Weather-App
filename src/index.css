@@ -1,0 +1,9 @@
+@import "./vendor/normalize.css";
+
+@font-face {
+  font-family: "CabinetGrotesk-Regular";
+  src: url("./vendor/cabinet-grotesk/CabinetGrotesk-Regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
