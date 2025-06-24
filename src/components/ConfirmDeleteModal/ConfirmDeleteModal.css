@@ -1,0 +1,45 @@
+.modal__content_delete-confirm {
+  max-width: 670px;
+  width: 100%;
+  height: 280px;
+  border: Mixed solid #0000004d;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 20px;
+  position: relative;
+  font-family: "CabinetGrotesk-Regular", sans-serif;
+  line-height: 24px;
+  padding: 0;
+  margin: 60px 151px;
+}
+
+.modal__content_delete-confirm_message {
+  margin: 0;
+}
+
+.modal__content_delete-confirm_buttons {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  gap: 24px;
+  border: none;
+  background-color: transparent;
+}
+
+.modal__content_delete-confirm_submit-button {
+  border: none;
+  background-color: transparent;
+  color: #ff4d00;
+  cursor: pointer;
+}
+
+.modal__delete-item_cancel-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

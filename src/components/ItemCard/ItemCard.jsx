@@ -2,18 +2,22 @@ import "./ItemCard.css";
 
 function ItemCard({ item, onCardClick }) {
   const handleCardClick = () => {
-    onCardClick(item);
+    if (typeof onCardClick === "function") {
+      onCardClick(item);
+    } else {
+      console.warn("onCardClick is not a function", onCardClick);
+    }
   };
 
   return (
-    <li className="card">
+    <li className="card" onClick={handleCardClick}>
       <h2 className="card__name">{item.name}</h2>
       <img
-        onClick={handleCardClick}
+        // onClick={handleCardClick}
         className="card__image"
-        src={item.link}
+        src={item.imageUrl}
         alt={item.name}
-      ></img>
+      />
     </li>
   );
 }

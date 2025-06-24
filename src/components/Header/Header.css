@@ -4,10 +4,41 @@
   justify-content: space-between;
   padding: 32px 0 28px;
   height: 40px;
+  object-fit: cover;
+  width: 1360px;
+}
+
+.header__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.header__profile-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-right: 40px;
 }
 
 .header__add-clothes-btn {
+  margin: 0px;
+  cursor: pointer;
+}
+
+.toggle-switch {
   margin-left: auto;
+  margin-right: 20px;
 }
 
 .header__logo {
@@ -23,13 +54,16 @@
   font-size: 20px;
   line-height: 24px;
   align-self: center;
+  white-space: nowrap;
 }
 
 .header__user-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  padding: 0px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .header__add-clothes-btn {
@@ -50,9 +84,12 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  margin: 0px;
 }
 
 .header__user-avatar {
   height: 40px;
   width: 40px;
+  flex-shrink: 0;
+  object-fit: contain;
 }

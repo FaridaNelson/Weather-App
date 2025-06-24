@@ -33,9 +33,13 @@
   border: none;
   width: 20px;
   height: 20px;
-  padding: 3px;
   display: flex;
-  background-color: #fff;
+  background-color: transparent;
+}
+
+.modal__close-img {
+  width: 20px;
+  height: 20px;
 }
 
 .modal__content {
@@ -50,13 +54,22 @@
 }
 
 .modal__submit {
-  background-color: #0000004d;
+  background-color: #000;
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
   color: #fff;
   width: auto;
   align-self: flex-start;
+}
+
+.modal__submit:hover {
+  background: #00000099;
+  cursor: pointer;
+}
+
+.modal__submit:disabled {
+  background-color: #0000004d;
 }
 
 .modal__input {

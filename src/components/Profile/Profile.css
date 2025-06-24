@@ -1,0 +1,11 @@
+.profile {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 119px;
+}
+
+.profile__clothing-items {
+  width: 1015px;
+  margin: auto;
+}

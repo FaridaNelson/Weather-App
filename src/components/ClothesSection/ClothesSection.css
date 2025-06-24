@@ -1,0 +1,30 @@
+.clothes__section_nav-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+.clothes__section_nav-bar {
+  font-weight: 700;
+  font-size: 20px;
+  gap: 20px;
+}
+
+.clothes__section_nav-bar_name {
+  padding: 16px auto 15px;
+}
+
+.clothes__section_nav-bar_add-clothes-btn {
+  border: none;
+  background: transparent;
+  color: #00000099;
+  cursor: pointer;
+}
+
+.clothes-section__card-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(323px, 1fr));
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
