@@ -1,10 +1,14 @@
 const baseUrl = "http://localhost:3001";
 
+function checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error ${res.status}`);
+}
+
 function getItemList() {
-  return fetch(`${baseUrl}/items`).then((res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Error: ${res.status}`);
-  });
+  return fetch(`${baseUrl}/items`).then(checkResponse);
 }
 
 function addItem({ name, imageUrl, weather }) {
@@ -14,23 +18,13 @@ function addItem({ name, imageUrl, weather }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, imageUrl, weather }),
-  }).then((res) => {
-    if (!res.ok) {
-      throw new Error("Failed to add item");
-    }
-    return res.json();
-  });
+  }).then(checkResponse);
 }
 
 function deleteItem(_id) {
   return fetch(`${baseUrl}/items/${_id}`, {
     method: "DELETE",
-  }).then((res) => {
-    if (!res.ok) {
-      throw new Error("Failed to delete item");
-    }
-    return res.json();
-  });
+  }).then(checkResponse);
 }
 
-export { getItemList, addItem, deleteItem };
+export { getItemList, addItem, deleteItem, checkResponse };

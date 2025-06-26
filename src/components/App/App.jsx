@@ -13,8 +13,11 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal.jsx";
+import React from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = React.useState(false);
+
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [weatherData, setWeatherData] = useState({
     type: "",
@@ -43,6 +46,7 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, link, weatherCondition }) => {
+    setIsLoading(true);
     addItem({ name, imageUrl: link, weather: weatherCondition })
       .then((newItem) => {
         const normalizedItem = { ...newItem, _id: newItem._id || newItem.id };
@@ -51,10 +55,14 @@ function App() {
       })
       .catch((err) => {
         console.error("Error adding item:", err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
   const handleCardDelete = (id) => {
+    setIsLoading(true);
     deleteItem(id)
       .then(() => {
         setClothingItems((prevItems) =>
@@ -62,7 +70,10 @@ function App() {
         );
         closeAllModals();
       })
-      .catch((err) => console.error("Error deleting item:", err));
+      .catch((err) => console.error("Error deleting item:", err))
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -149,17 +160,19 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onClose={closeAllModals}
           onAddItemModalSubmit={handleAddItemModalSubmit}
+          buttonText={isLoading ? "Saving..." : "Add garment"}
         />
         <ItemModal
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeAllModals}
-          setConfirmdeleteModalOpen={setConfirmDeleteModalOpen}
+          setConfirmDeleteModalOpen={setConfirmDeleteModalOpen}
           setItemToDelete={setItemToDelete}
         />
         <ConfirmDeleteModal
           isOpen={confirmDeleteModalOpen}
           onClose={() => setConfirmDeleteModalOpen(false)}
+          buttonText={isLoading ? "Deleting..." : "Delete"}
           onConfirm={() => {
             handleCardDelete(itemToDelete._id);
             setConfirmDeleteModalOpen(false);

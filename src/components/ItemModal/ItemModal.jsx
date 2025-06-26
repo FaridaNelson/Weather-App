@@ -1,14 +1,20 @@
 import "./ItemModal.css";
 import closeIconWHT from "../../images/close-icon-WHT.svg";
+import useEscapeClose from "../../hooks/useEscapeClose";
 
 function ItemModal({
   activeModal,
   onClose,
   card,
   setItemToDelete,
-  setConfirmdeleteModalOpen,
+  setConfirmDeleteModalOpen,
 }) {
+  const isOpen = activeModal === "preview";
+
+  useEscapeClose(isOpen, onClose);
+
   if (!card) return null;
+
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__content modal__content_type_image">
@@ -28,7 +34,7 @@ function ItemModal({
           <button
             onClick={() => {
               setItemToDelete(card);
-              setConfirmdeleteModalOpen(true);
+              setConfirmDeleteModalOpen(true);
             }}
             type="button"
             className="modal__delete-item-btn"

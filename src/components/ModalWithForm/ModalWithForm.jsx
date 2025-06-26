@@ -1,6 +1,6 @@
 import closeIcon from "../../images/close-icon.svg";
 import "./ModalWithForm.css";
-import { useState, useEffect } from "react";
+import useEscapeClose from "../../hooks/useEscapeClose";
 
 function ModalWithForm({
   isOpen,
@@ -9,26 +9,9 @@ function ModalWithForm({
   children,
   onClose,
   onSubmit,
-  name,
-  link,
-  weatherCondition,
+  isFormValid,
 }) {
-  const [isFormValid, setIsFormValid] = useState(false);
-
-  const isValidUrl = (url) => {
-    try {
-      new URL(url);
-      return true;
-    } catch {
-      return false;
-    }
-  };
-
-  useEffect(() => {
-    const valid =
-      name.trim().length >= 1 && isValidUrl(link) && weatherCondition !== "";
-    setIsFormValid(valid);
-  }, [name, link, weatherCondition]);
+  useEscapeClose(isOpen, onClose);
 
   return (
     <div className={`modal ${isOpen ? "modal_opened" : ""}`}>
