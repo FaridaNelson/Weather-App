@@ -98,7 +98,7 @@ function AddItemModal({ isOpen, onClose, onAddItemModalSubmit, buttonText }) {
               type="radio"
               name="weatherCondition"
               value={type}
-              className="modal___radio-input"
+              className="modal__radio-input"
               onChange={handleWeatherConditionChange}
               checked={weatherCondition === type}
             />{" "}

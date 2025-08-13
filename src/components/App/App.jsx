@@ -29,8 +29,6 @@ import LoginModal from "../LoginModal/LoginModal";
 import { signUp, signIn, validateToken } from "../../utils/auth.js";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import CurrentUserContext from "../../contexts/CurrentUserContext.js";
-import SideBar from "../SideBar/SideBar.jsx";
-import { use } from "react";
 
 function App() {
   const [isLoading, setIsLoading] = React.useState(false);

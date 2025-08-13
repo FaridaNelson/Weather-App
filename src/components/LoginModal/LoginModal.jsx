@@ -34,12 +34,11 @@ function LoginModal({ isOpen, onClose, onLogin, onOpenRegister }) {
     <ModalWithForm
       isOpen={isOpen}
       title="Log In"
-      // buttonText="Log In"
       onClose={onClose}
       onSubmit={handleSubmit}
       isFormValid={isFormValid}
     >
-      <label htmlFor="login-email" className="modal-label">
+      <label htmlFor="login-email" className="modal__label">
         Email
         <input
           type="email"
@@ -52,7 +51,7 @@ function LoginModal({ isOpen, onClose, onLogin, onOpenRegister }) {
           required
         />
       </label>
-      <label htmlFor="login-password" className="modal-label">
+      <label htmlFor="login-password" className="modal__label">
         Password
         <input
           type="password"

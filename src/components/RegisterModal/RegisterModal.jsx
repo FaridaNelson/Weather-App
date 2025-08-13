@@ -45,12 +45,11 @@ function RegisterModal({ isOpen, onClose, onRegister, onOpenLogin }) {
     <ModalWithForm
       isOpen={isOpen}
       title="Sign Up"
-      // buttonText="Sing Up"
       onClose={onClose}
       onSubmit={handleSubmit}
       isFormValid={isFormValid}
     >
-      <label htmlFor="register-email" className="modal-label">
+      <label htmlFor="register-email" className="modal__label">
         Email *
         <input
           type="email"
@@ -63,11 +62,11 @@ function RegisterModal({ isOpen, onClose, onRegister, onOpenLogin }) {
           required
         />
       </label>
-      <label htmlFor="register-password" className="modal-label">
+      <label htmlFor="register-password" className="modal__label">
         Password *
         <input
           type="password"
-          id="reigster-password"
+          id="register-password"
           className="modal__input"
           placeholder="Password"
           name="password"
@@ -105,7 +104,7 @@ function RegisterModal({ isOpen, onClose, onRegister, onOpenLogin }) {
           placeholder="Avatar URL"
           required
           onChange={handleChange}
-          value={formData.link}
+          value={formData.avatar}
         />
         {!isValidUrl(formData.avatar) && formData.avatar && (
           <p className="error-message">Invalid URL</p>
