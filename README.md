@@ -1,6 +1,12 @@
 # 🌤️ WeatherApp
 
-WeatherApp is a responsive web application that provides real-time weather information based on the user's current location or a searched city. It's built using modern JavaScript and React.
+WTWR is a responsive web application that provides real-time weather information based on the user's current location and current weather. It's built using modern JavaScript and React.
+
+## Back-end project
+
+Here is the link to the back-end project:
+
+https://github.com/FaridaNelson/se_project_express
 
 ## 🚀 Features
 
@@ -84,7 +90,7 @@ VITE_WEATHER_API_KEY=your_api_key_here
 
 ## 👩‍💻 Author
 
-**Farida Nelson**\
+**Farida Nelson**
 [GitHub](https://github.com/faridanelson) • [LinkedIn](https://linkedin.com/in/farida-nelson-music/)
 
 ## 📄 License

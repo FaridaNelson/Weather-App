@@ -1,8 +1,11 @@
-import "./ItemModal.css";
+import React, { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 import closeIconWHT from "../../images/close-icon-WHT.svg";
 import useEscapeClose from "../../hooks/useEscapeClose";
+import "./ItemModal.css";
 
 function ItemModal({
+  selectedCard,
   activeModal,
   onClose,
   card,
@@ -10,8 +13,18 @@ function ItemModal({
   setConfirmDeleteModalOpen,
 }) {
   const isOpen = activeModal === "preview";
+  const ctx = useContext(CurrentUserContext);
+  const currentUser = ctx?.user?.data ?? ctx?.user ?? ctx ?? null;
 
+  // Hook to close modal on Escape key press
   useEscapeClose(isOpen, onClose);
+
+  const item = card ?? selectedCard;
+  if (!isOpen || !item?._id) return null;
+
+  const ownerId = String(item?.owner?._id ?? item?.owner ?? "");
+  const currentUserId = String((currentUser?.data ?? currentUser)?._id ?? "");
+  const isOwn = Boolean(currentUserId && ownerId && ownerId === currentUserId);
 
   if (!card) return null;
 
@@ -25,22 +38,28 @@ function ItemModal({
             className="modal__close-img"
           />
         </button>
-        <img src={card.imageUrl} alt="Card image" className="modal__image" />
+        <img
+          src={item.imageUrl}
+          alt={item.name ? `${item.name} item` : "Clothing item"}
+          className="modal__image"
+        />
         <div className="modal__footer">
           <div>
-            <p className="modal__caption">{card.name}</p>
-            <p className="modal__weather">Weather: {card.weather}</p>
+            <p className="modal__caption">{item.name}</p>
+            <p className="modal__weather">Weather: {item.weather}</p>
           </div>
-          <button
-            onClick={() => {
-              setItemToDelete(card);
-              setConfirmDeleteModalOpen(true);
-            }}
-            type="button"
-            className="modal__delete-item-btn"
-          >
-            Delete item
-          </button>
+          {isOwn && (
+            <button
+              onClick={() => {
+                setItemToDelete(item);
+                setConfirmDeleteModalOpen(true);
+              }}
+              type="button"
+              className="modal__delete-item-btn"
+            >
+              Delete item
+            </button>
+          )}
         </div>
       </div>
     </div>

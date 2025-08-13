@@ -7,12 +7,14 @@
 .modal__image {
   width: 498px;
   height: 498px;
+  object-fit: cover;
   border-radius: 20px 20px 0 0;
   padding: 0;
 }
 
 .modal__close {
   cursor: pointer;
+  color: white;
 }
 
 .modal__close-img {
@@ -35,6 +37,9 @@
   color: #ff4d00;
   align-self: flex-start;
   cursor: pointer;
+}
+.modal__delete-item-btn_hidden {
+  display: none;
 }
 
 .modal__caption {
