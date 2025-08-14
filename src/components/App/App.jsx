@@ -23,7 +23,6 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 import Profile from "../Profile/Profile.jsx";
 import AddItemModal from "../AddItemModal/AddItemModal.jsx";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal.jsx";
-import { useAuth } from "../../hooks/useAuth";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
 import { signUp, signIn, validateToken } from "../../utils/auth.js";
@@ -49,22 +48,10 @@ function App() {
   const [isConfirmDeleteModalOpen, setConfirmDeleteModalOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
   const navigate = useNavigate();
-  const { user, signUp, signIn, signOut, isLoading: authLoading } = useAuth();
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
     setSelectedCard(card);
-  };
-  const handleAddClick = () => {
-    setActiveModal("add-garment");
-  };
-
-  const openLoginModal = () => {
-    setActiveModal("login");
-  };
-
-  const openRegisterModal = () => {
-    setActiveModal("register");
   };
 
   const closeAllModals = () => {

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 // Simulate API requests for sign-up and sign-in (replace with actual API calls)
 const mockApi = {
   signUp: async (email, password) => {
