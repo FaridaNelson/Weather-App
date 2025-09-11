@@ -1,4 +1,7 @@
-const API_URL = "http://localhost:3001";
+const API_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://api.wtwr.star.is"
+    : "http://localhost:3001";
 
 export const validateToken = async (token) => {
   try {
