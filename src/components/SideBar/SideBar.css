@@ -63,3 +63,9 @@
   font-weight: 700;
   font-size: 20px;
 }
+
+@media (max-width: 650px) {
+  .sidebar__row {
+    display: none;
+  }
+}

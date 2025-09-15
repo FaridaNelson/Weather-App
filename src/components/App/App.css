@@ -7,3 +7,9 @@
   max-width: 1360px;
   margin: 0 auto;
 }
+
+@media (max-width: 1359.98px) {
+  .page-content {
+    padding-inline: 16px; /* tweak 16→24 if you want more room */
+  }
+}

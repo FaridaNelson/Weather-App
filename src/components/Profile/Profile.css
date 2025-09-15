@@ -9,3 +9,13 @@
   width: 1015px;
   margin: auto;
 }
+
+@media (max-width: 650px) {
+  .profile {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+}
